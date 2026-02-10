@@ -1,11 +1,8 @@
 #include <stdio.h>
-
 #define V 5
 #define INF 9999
-
 int findMin(int dist[], int visited[]) {
     int min = INF, min_index = -1;
-
     for (int i = 0; i < V; i++) {
         if (!visited[i] && dist[i] < min) {
             min = dist[i];
@@ -14,7 +11,6 @@ int findMin(int dist[], int visited[]) {
     }
     return min_index;
 }
-
 void printPath(int parent[], int j) {
     if (parent[j] == -1) {
         printf("%d ", j);
@@ -23,7 +19,6 @@ void printPath(int parent[], int j) {
     printPath(parent, parent[j]);
     printf("%d ", j);
 }
-
 void dijkstra(int graph[V][V], int source) {
     int dist[V], visited[V], parent[V];
     for (int i = 0; i < V; i++) {
@@ -44,7 +39,6 @@ void dijkstra(int graph[V][V], int source) {
             }
         }
     }
-
     printf("Vertex\tDistance\tPath\n");
     for (int i = 0; i < V; i++) {
         printf("%d\t%d\t\t", i, dist[i]);
@@ -52,7 +46,6 @@ void dijkstra(int graph[V][V], int source) {
         printf("\n");
     }
 }
-
 int main() {
     int graph[V][V] = {
         {0, 10, 0, 30, 100},
