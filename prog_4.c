@@ -69,12 +69,12 @@ void deleteNodeByValue(int value){
     free(temp);
 }
 int main(){
-    insertEnd(10);
-    insertEnd(15);
-    insertAfterNode(head,20);
-    insertAfterNode(head->next, 30);
+    insertEnd(5);
+    insertEnd(35);
+    insertAfterNode(head,10);
+    insertAfterNode(head->next, 15);
     displayList();
-    deleteNodeByValue(30);
+    deleteNodeByValue(20);
     displayList();
     return 0;
 }
