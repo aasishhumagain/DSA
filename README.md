@@ -1,2 +1,4 @@
 # DSA
-DSA assignments II/I
+DSA assignments II/I 
+
+Submitted to Bipesh Subedi Sir, Lecturer AT DEPARTMENT OF COMPUTER SCIENCE & ENGINEERING, KATHMANDU UNIVERSITY
