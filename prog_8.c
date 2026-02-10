@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 #define MIN 1
 #define MAX 1000
-
 void printList(int arr[], int n){
     for(int i = 0; i < n; i++)
         printf(" %d", arr[i]);
     printf("\n");
 }
-
 void bubbleSort(int arr[], int n, int *comp, int *swaps){
     for(int i = 0; i < n-1; i++){
         for(int j = 0; j < n-i-1; j++){
@@ -24,7 +21,6 @@ void bubbleSort(int arr[], int n, int *comp, int *swaps){
         }
     }
 }
-
 void selectionSort(int arr[], int n, int *comp, int *swaps){
     for(int i = 0; i < n-1; i++){
         int minIndex = i;
@@ -41,7 +37,6 @@ void selectionSort(int arr[], int n, int *comp, int *swaps){
         }
     }
 }
-
 void insertionSort(int arr[], int n, int *comp, int *swaps){
     for(int i = 1; i < n; i++){
         int key = arr[i];
@@ -55,15 +50,12 @@ void insertionSort(int arr[], int n, int *comp, int *swaps){
         arr[j+1] = key;
     }
 }
-
 void merge(int arr[], int l, int m, int r, int *comp){
     int n1 = m - l + 1;
     int n2 = r - m;
-
     int L[n1], R[n2];
     for(int i = 0; i < n1; i++) L[i] = arr[l+i];
     for(int j = 0; j < n2; j++) R[j] = arr[m+1+j];
-
     int i = 0, j = 0, k = l;
     while(i < n1 && j < n2){
         (*comp)++;
@@ -72,11 +64,9 @@ void merge(int arr[], int l, int m, int r, int *comp){
         else
             arr[k++] = R[j++];
     }
-
     while(i < n1) arr[k++] = L[i++];
     while(j < n2) arr[k++] = R[j++];
 }
-
 void mergeSort(int arr[], int l, int r, int *comp){
     if(l < r){
         int m = (l + r) / 2;
@@ -85,27 +75,20 @@ void mergeSort(int arr[], int l, int r, int *comp){
         merge(arr, l, m, r, comp);
     }
 }
-
 int main(){
     int N, choice;
     int comparisons = 0, swaps = 0;
-
     printf("Enter total number of integers: ");
     scanf("%d", &N);
-
     int arr[N];
     srand(time(NULL));
-
     for(int i = 0; i < N; i++)
         arr[i] = (rand() % (MAX - MIN + 1)) + MIN;
-
     printf("\nUnsorted List:\n");
     printList(arr, N);
-
     printf("\nChoose Sorting Algorithm:\n");
     printf("1. Bubble Sort\n2. Selection Sort\n3. Insertion Sort\n4. Merge Sort\n");
     scanf("%d", &choice);
-
     switch(choice){
         case 1:
             bubbleSort(arr, N, &comparisons, &swaps);
@@ -124,12 +107,9 @@ int main(){
             printf("Invalid choice!\n");
             return 0;
     }
-
     printf("\nSorted List:\n");
     printList(arr, N);
-
     printf("\nTotal Comparisons: %d\n", comparisons);
     printf("Total Swaps: %d\n", swaps);
-
     return 0;
 }
